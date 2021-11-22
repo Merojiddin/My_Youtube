@@ -5,7 +5,7 @@ function Subscriptions() {
   return (
     <Wrapper>
       <h4>Subscriptions</h4>
-      Subscribed Channels
+      <h1>Subscribed Channels</h1>
     </Wrapper>
   );
 }

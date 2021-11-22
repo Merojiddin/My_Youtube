@@ -1,23 +1,42 @@
-export function authenticate() {}
+import axios from "axios";
 
-export async function signoutUser() {}
+export const client = axios.create({
+  baseURL: "/api/v1"
+})
 
-export async function updateUser() {}
+export function authenticate(response) {
+  client({
+    method: "POST",
+    url: "/auth/google-login",
+    data: { idToken: response.tokenId }
+  })
+    .then(response => {
+      console.log("SignIn success: ", response);
+      window.location.assign(window.location.href)
+    })
+    .catch(error => {
+      console.group("Sign in error: ", error.response)
+    })
+}
 
-export async function addVideoView() {}
+export async function signoutUser() { }
 
-export async function addComment() {}
+export async function updateUser() { }
 
-export async function addVideo() {}
+export async function addVideoView() { }
 
-export async function subscribeUser() {}
+export async function addComment() { }
 
-export async function unsubscribeUser() {}
+export async function addVideo() { }
 
-export async function likeVideo() {}
+export async function subscribeUser() { }
 
-export async function dislikeVideo() {}
+export async function unsubscribeUser() { }
 
-export async function deleteVideo() {}
+export async function likeVideo() { }
 
-export async function deleteComment() {}
+export async function dislikeVideo() { }
+
+export async function deleteVideo() { }
+
+export async function deleteComment() { }
